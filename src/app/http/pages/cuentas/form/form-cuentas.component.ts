@@ -20,8 +20,9 @@ import { CommonModule, formatDate } from "@angular/common";
 import { Cliente, CreateCliente } from "@web/core/models/cliente.model";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { Select2Data, Select2Module, Select2Value } from "ng-select2-component";
-import { ClienteService } from "@web/core/services/app/cliente.service";
+import { CuentaService } from "@web/core/services/app/cuenta.service";
 import { ValidationErrorComponent } from "@web/shared/validation-error/validation-error.component";
+import { CreateCuenta, Cuenta } from "@web/core/models/cuenta.model";
 
 @Component({
   standalone: true,
@@ -42,14 +43,15 @@ import { ValidationErrorComponent } from "@web/shared/validation-error/validatio
  */
 export class FormCuentasComponent implements OnInit {
   @Input({ required: true }) Cliente: Cliente | null = null;
+  @Input({ required: true }) Cuenta: Cuenta | null = null;
   @Output() confirmSave = new EventEmitter();
   @Output() closeModal = new EventEmitter();
 
   private toastr = inject(ToastrService);
-  private service = inject(ClienteService);
+  private service = inject(CuentaService);
 
   form: UntypedFormGroup;
-  data: CreateCliente;
+  data: CreateCuenta;
   typesubmit: boolean;
 
   DataOrganizationType: Select2Data = [];
@@ -73,41 +75,30 @@ export class FormCuentasComponent implements OnInit {
     this.typesubmit = true;
 
     if (this.form.valid) {
-      const info: CreateCliente = this.form.value;
+      const info: CreateCuenta = this.form.value;
+      info.cliente_id = this.Cliente.cliente_id;
+      info.cuenta_id = this.Cuenta.cuenta_id;
+      info.moneda = "USD";
 
-      if (!this.Cliente?.cliente_id) {
-        this.save(info);
-      } else {
-        this.update(info);
-      }
+      console.log("info cuenta to save", info);
+
+      this.save(info);
     } else {
       this.form.markAllAsTouched();
     }
   }
 
-  async save(info: CreateCliente): Promise<void> {
+  async save(info: CreateCuenta): Promise<void> {
     const res = await this.service.createAsync(info);
+
     if (res) {
       this.confirmSave.emit("Registro guardado exitosamente!!!!");
     }
   }
 
-  async update(info: CreateCliente): Promise<void> {
-    const res = await this.service.updateAsync(this.Cliente.cliente_id, info);
-
-    if (res) {
-      this.confirmSave.emit(res);
-    }
-  }
-
   private buildForm() {
     this.form = this.formBuilder.group({
-      primer_nombre: ["", [Validators.required]],
-      segundo_nombre: ["", [Validators.required]],
-      apellido_paterno: ["", [Validators.required]],
-      apellido_materno: ["", [Validators.required]],
-      identificacion: ["", [Validators.required]],
-      user_name: [""],
+      monto: ["", [Validators.required]],
     });
   }
 

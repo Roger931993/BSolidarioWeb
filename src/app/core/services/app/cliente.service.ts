@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "@web/../environments/environment";
-import { firstValueFrom, Observable } from "rxjs";
+import { firstValueFrom, Observable, map } from "rxjs";
 import { Cliente, CreateCliente } from "@web/core/models/cliente.model";
 
 @Injectable({
@@ -12,13 +12,13 @@ export class ClienteService {
 
   constructor() {}
 
-  url_get: string = environment.apiUrl + "/api/Cliente/Clientes";
+  url_get: string = environment.apiUrl + "/api/Cliente/clientes";
   url_delete: string = environment.apiUrl + "/api/Cliente/Clientes";
-  url_post: string = environment.apiUrl + "/api/Cliente/Clientes";
+  url_post: string = environment.apiUrl + "/api/Cliente/cliente";
   url_update: string = environment.apiUrl + "/api/Cliente/Clientes";
 
   get(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.url_get);
+    return this.http.get<Cliente[]>(this.url_get).pipe(map((data: any) => data.data.clientes));
   }
 
   async createAsync(data: CreateCliente): Promise<Cliente> {

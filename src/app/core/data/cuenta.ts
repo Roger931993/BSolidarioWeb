@@ -1,6 +1,6 @@
 import { ClienteCuentas } from "../models/cliente.cuentas.model";
 
-const Cuenta: ClienteCuentas[] = [
+const DataCuenta: ClienteCuentas[] = [
   {
     cliente: {
       cliente_id: 4,
@@ -68,4 +68,4 @@ const Cuenta: ClienteCuentas[] = [
   },
 ];
 
-export { Cuenta };
+export { DataCuenta };

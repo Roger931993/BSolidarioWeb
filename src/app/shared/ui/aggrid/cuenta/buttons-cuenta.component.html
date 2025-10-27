@@ -1,0 +1,22 @@
+<div>
+  <button type="button" class="btn btn-outline-info btn-sm" (click)="openEnd(content_button_register)">
+    AGREGAR CUENTA
+  </button>
+</div>
+
+
+<ng-template #content_button_register let-offcanvas>
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">
+      Agregar Nueva Cuenta
+    </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <div class="d-flex- flex-column- align-items-start- bd-highlight justify-content-start">
+      <app-form-cuentas (confirmSave)="confirmSave($event)" (closeModal)="closeModal()" [Cliente]="data.cliente"
+        [Cuenta]="data.cuenta"></app-form-cuentas>
+    </div>
+  </div>
+</ng-template>

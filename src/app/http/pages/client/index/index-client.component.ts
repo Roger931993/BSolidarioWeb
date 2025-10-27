@@ -11,7 +11,7 @@ export class IndexClientComponent {
   ngOnInit() {
     this.breadCrumbItems = [
       { label: "Inicio" },
-      { label: "Proyecto", active: true },
+      { label: "Clientes", active: true },
     ];
   }
 }

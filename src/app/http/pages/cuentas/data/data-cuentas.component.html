@@ -21,10 +21,6 @@
             </button>
         </div>
         <div>
-            <button type="button" class="btn btn-success btn-sm text-uppercase me-2" data-bs-toggle="modal"
-                (click)="showModalCreate()">
-                Agregar Cuenta al cliente
-            </button>
 
             <button (click)="refresh()" class="btn btn-success btn-sm">
                 <i class="mdi mdi-reload"></i>
@@ -38,15 +34,5 @@
     </ag-grid-angular>
 
 
-    <ng-template #ModalCreate role="document" class="" let-modal>
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Crear Cliente</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                (click)="modalRef?.hide()"></button>
-        </div>
-        <div class="modal-body">
-            <app-form-cuentas (confirmSave)="confirmSave($event)" (closeModal)="closeModal()"
-                [Project]="Project"></app-form-cuentas>
-        </div>
-    </ng-template>
+
 </div>

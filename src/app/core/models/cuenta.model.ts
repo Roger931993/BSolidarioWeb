@@ -17,4 +17,9 @@ export interface Cuenta {
   det_producto: string;
 }
 
-export interface CreateCuenta extends Omit<Cuenta, "cuenta_id"> {}
+export interface CreateCuenta {
+  cuenta_id: number;
+  cliente_id: number;
+  moneda: string;
+  monto: number;
+}

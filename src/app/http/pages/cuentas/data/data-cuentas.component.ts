@@ -19,6 +19,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Cuenta } from "@web/core/models/cuenta.model";
 import { ButtonsAgGrid } from "@web/shared/ui/aggrid/buttons.component";
 import { FormatDateAgGrid } from "@web/shared/ui/aggrid/format-date.component";
+import { ButtonsCuentaAgGrid } from "@web/shared/ui/aggrid/cuenta/buttons-cuenta.component";
 
 @Component({
   selector: "app-data-cuentas",
@@ -106,11 +107,13 @@ export class DataCuentasComponent {
     {
       headerName: "Acciones",
       editable: false,
-      valueGetter: (params: ValueGetterParams) => params.data,
-      cellRenderer: ButtonsAgGrid,
+      valueGetter: (params: ValueGetterParams) => {
+        return { cliente: this.Cliente(), cuenta: params.data };
+      },
+      cellRenderer: ButtonsCuentaAgGrid,
       pinned: "right",
       flex: 1,
-      width: 100,
+      width: 160,
     },
   ];
 

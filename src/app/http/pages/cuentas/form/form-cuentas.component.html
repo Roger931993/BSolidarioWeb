@@ -2,77 +2,12 @@
     <form (ngSubmit)="submit()" [formGroup]="form">
         <div class="row">
             <div class="col-md-6 pb-3">
-                <label class="form-label" for="primer_nombre">Primer Nombre <i class="text-danger">*</i></label>
+                <label class="form-label" for="monto">Monto <i class="text-danger">*</i></label>
                 <div>
-                    <input name="primer_nombre" id="primer_nombre" formControlName="primer_nombre"
-                        class="form-control form-control-sm"
-                        [ngClass]="{'is-invalid': typesubmit && type.primer_nombre.errors}" placeholder="Nombre" />
+                    <input name="monto" id="monto" formControlName="monto" class="form-control form-control-sm"
+                        [ngClass]="{'is-invalid': typesubmit && type.monto.errors}" placeholder="Monto" />
 
-                    <app-validation-error [control]="type.primer_nombre"
-                        [typesubmit]="typesubmit"></app-validation-error>
-                </div>
-            </div>
-
-            <div class="col-md-6 pb-3">
-                <label class="form-label" for="segundo_nombre">Segundo Nombre <i class="text-danger">*</i></label>
-                <div>
-                    <input name="segundo_nombre" id="segundo_nombre" formControlName="segundo_nombre"
-                        class="form-control form-control-sm"
-                        [ngClass]="{'is-invalid': typesubmit && type.segundo_nombre.errors}"
-                        placeholder="Nombre corto" />
-
-                    <app-validation-error [control]="type.segundo_nombre"
-                        [typesubmit]="typesubmit"></app-validation-error>
-                </div>
-            </div>
-
-            <div class="col-md-6 pb-3">
-                <label class="form-label" for="apellido_paterno">Apellido Paterno <i class="text-danger">*</i></label>
-                <div>
-                    <input name="apellido_paterno" id="apellido_paterno" formControlName="apellido_paterno"
-                        class="form-control form-control-sm"
-                        [ngClass]="{'is-invalid': typesubmit && type.apellido_paterno.errors}"
-                        placeholder="Apellido Paterno" />
-
-                    <app-validation-error [control]="type.apellido_paterno"
-                        [typesubmit]="typesubmit"></app-validation-error>
-                </div>
-            </div>
-
-            <div class="col-md-6 pb-3">
-                <label class="form-label" for="apellido_materno">Apellido Materno <i class="text-danger">*</i></label>
-                <div>
-                    <input name="apellido_materno" id="apellido_materno" formControlName="apellido_materno"
-                        class="form-control form-control-sm"
-                        [ngClass]="{'is-invalid': typesubmit && type.apellido_materno.errors}"
-                        placeholder="Apellido Materno" />
-
-                    <app-validation-error [control]="type.apellido_materno"
-                        [typesubmit]="typesubmit"></app-validation-error>
-                </div>
-            </div>
-
-            <div class="col-md-6 pb-3">
-                <label class="form-label" for="identificacion">Identificación <i class="text-danger">*</i></label>
-                <div>
-                    <input name="identificacion" id="identificacion" formControlName="identificacion"
-                        class="form-control form-control-sm"
-                        [ngClass]="{'is-invalid': typesubmit && type.identificacion.errors}"
-                        placeholder="Identificación" />
-
-                    <app-validation-error [control]="type.identificacion"
-                        [typesubmit]="typesubmit"></app-validation-error>
-                </div>
-            </div>
-
-            <div class="col-md-6 pb-3">
-                <label class="form-label" for="user_name">user_name </label>
-                <div>
-                    <input name="user_name" id="user_name" formControlName="user_name"
-                        class="form-control form-control-sm"
-                        [ngClass]="{'is-invalid': typesubmit && type.user_name.errors}" placeholder="Identificación" />
-
-                    <app-validation-error [control]="type.user_name" [typesubmit]="typesubmit"></app-validation-error>
+                    <app-validation-error [control]="type.monto" [typesubmit]="typesubmit"></app-validation-error>
                 </div>
             </div>
         </div>
