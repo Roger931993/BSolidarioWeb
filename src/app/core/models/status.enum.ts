@@ -1,0 +1,15 @@
+export enum StatusEnum {
+  Inactivo = 0,
+  Activo = 1,
+  Disenio = 2,
+  Kickoff = 3,
+  PlanificacionImplementacion = 4,
+  TransicionCierre = 5,
+  PostProyect = 6,
+  Cerrados = 7,
+  Enconversacion = 8,
+  Planificacion = 9,
+  Ejecucion = 10,
+  Completado = 11,
+  Anulado = 12,
+}

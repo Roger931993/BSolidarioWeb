@@ -1,0 +1,32 @@
+.btn-heifer {
+  background: #0081a6 0% 0% no-repeat padding-box;
+  color: #ffffff;
+  &:hover {
+    background: #ed712d 0% 0% no-repeat padding-box;
+    color: #fff;
+  }
+}
+
+.btn-link {
+  color: #113e66;
+  &:hover {
+    color: #ed712d;
+  }
+}
+
+.text-blue {
+  color: #0d2352;
+  &:hover {
+    color: #6ca342;
+  }
+}
+.text-gree {
+  color: #6ca342;
+}
+.btn-heifer-project:hover {
+  background: #0081a6 0% 0% no-repeat padding-box;
+  color: #fff !important;
+}
+.text-indicator-sfc {
+  color: #0081a6 !important;
+}

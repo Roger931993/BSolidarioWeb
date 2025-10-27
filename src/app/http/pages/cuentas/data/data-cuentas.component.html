@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-lg-12">
+            <div class="d-flex align-items-center">
+                <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-sm rounded">
+                <div class="ms-3 flex-grow-1">
+                    <h5 class="mb-2 card-title">Hola, <span class="text-uppercase">{{ Cliente()?.primer_nombre }} {{
+                            Cliente()?.apellido_paterno }}</span>
+                    </h5>
+                    <p class="text-muted mb-0">Estas son tus cuentas </p>
+                </div>
+
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+
+    <div class="d-flex justify-content-between mb-1">
+        <div>
+            <button style="margin-bottom: 5px" (click)="clearFilter()" class="btn">
+                <span class="me-2">Refrescar</span> <i class="mdi mdi-filter-remove"></i>
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success btn-sm text-uppercase me-2" data-bs-toggle="modal"
+                (click)="showModalCreate()">
+                Agregar Cuenta al cliente
+            </button>
+
+            <button (click)="refresh()" class="btn btn-success btn-sm">
+                <i class="mdi mdi-reload"></i>
+            </button>
+        </div>
+    </div>
+
+    <ag-grid-angular style="width: 100%; height: 70vh;" class="mb-5" [class]="themeClass" [rowData]="RowData()"
+        [defaultColDef]="defaultColDef" [columnDefs]="colDefs" [animateRows]="true" [pagination]="true"
+        [context]="context">
+    </ag-grid-angular>
+
+
+    <ng-template #ModalCreate role="document" class="" let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Crear Cliente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="modalRef?.hide()"></button>
+        </div>
+        <div class="modal-body">
+            <app-form-cuentas (confirmSave)="confirmSave($event)" (closeModal)="closeModal()"
+                [Project]="Project"></app-form-cuentas>
+        </div>
+    </ng-template>
+</div>
